@@ -1,0 +1,17 @@
+version: "3"
+
+volumes:
+  mysql_db:
+
+services:
+  mysql:
+    container_name: mysql-verity
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=verity
+      - MYSQL_ROOT_PASSWORD=Verity@123
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_db:/var/lib/mysql
