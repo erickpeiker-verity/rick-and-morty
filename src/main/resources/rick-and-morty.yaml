@@ -210,63 +210,36 @@ definitions:
     description: ""
     type: object
     properties:
-      id:
-        format: int32
-        type: integer
-      name:
-        type: string
       status:
         type: string
-      species:
+      url:
         type: string
-      type:
+      codigo:
+        format: int32
+        type: integer
+      genero:
         type: string
-      gender:
+      nome:
         type: string
-      origin:
-        type: object
-        properties:
-          name:
-            type: string
-          url:
-            type: string
-      location:
-        type: object
-        properties:
-          name:
-            type: string
-          url:
-            type: string
-      image:
+      especie:
         type: string
-      episode:
+      tipo:
+        type: string
+      episodios:
         type: array
         items:
           type: string
-      url:
-        type: string
-      created:
-        format: date-time
-        type: string
     example:
-      id: 2
-      name: Morty Smith
+      codigo: 2
+      nome: Morty Smith
       status: Alive
-      species: Human
-      type: ""
-      gender: Male
-      origin:
-        name: Earth
-        url: https://rickandmortyapi.com/api/location/1
-      location:
-        name: Earth
-        url: https://rickandmortyapi.com/api/location/20
-      image: https://rickandmortyapi.com/api/character/avatar/2.jpeg
-      episode:
+      especie: Human
+      tipo: ""
+      genero: Male
+      episodios:
       - https://rickandmortyapi.com/api/episode/1
       - https://rickandmortyapi.com/api/episode/2
       url: https://rickandmortyapi.com/api/character/2
-      created: 2017-11-04T18:50:21.651Z
   Episodios:
     title: Root Type for Episodios
     description: ""
