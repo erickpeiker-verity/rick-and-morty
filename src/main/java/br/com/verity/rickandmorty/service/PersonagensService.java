@@ -6,7 +6,10 @@ import br.com.verity.rickandmorty.dto.PersonagensDto;
 
 public interface PersonagensService {
 
-    PersonagensDto salvarPersonagem(PersonagensDto personagensDto);
     List<PersonagensDto> listarPersonagens();
+    PersonagensDto salvarPersonagem(PersonagensDto personagensDto);
+    PersonagensDto buscarPersonagem(String personagensId);
+    void alterarPersonagem(String personagensId, PersonagensDto personagemDto);
+    void removerPersonagem(String personagensId);
     
 }

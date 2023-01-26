@@ -2,41 +2,54 @@ package br.com.verity.rickandmorty.mapper;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+import br.com.verity.rickandmorty.converter.PersonagensConverter;
 import br.com.verity.rickandmorty.dto.PersonagensDto;
 import br.com.verity.rickandmorty.model.Personagens;
 
-@Component
+@Configuration
 public class PersonagensMapper {
 
-    @Autowired
-    ModelMapper modelMapper;
+    @Bean
+    public ModelMapper modelMapperPersonagens() {
+        final ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
-    public PersonagensDto toDto(Personagens personagem) {
-        PropertyMap<Personagens, PersonagensDto> personagemMap = new PropertyMap<Personagens,PersonagensDto>() {
+        final PropertyMap<Personagens, PersonagensDto> personagemToDtoMap = new PropertyMap<Personagens,PersonagensDto>() {
             protected void configure() {
-                //map().setCodigo(personagem.getId());
-                map().setNome(personagem.getName());
-                map().setEspecie(personagem.getSpecies());
-                map().setUrl(personagem.getUrl());
+                map().setStatus(source.getStatus());
+                map().setUrl(source.getUrl());
+                using(PersonagensConverter.longToInteger())
+                    .map(source.getId(), destination.getCodigo());
+                map().setGenero(source.getGender());
+                map().setNome(source.getName());
+                map().setEspecie(source.getSpecies());
+                map().setTipo(source.getType());
+                map().setEpisodios(source.getEpisode());
             }
         };
-        modelMapper.addMappings(personagemMap);
-        return modelMapper.map(personagem, PersonagensDto.class);
-    }
 
-    public Personagens toModel(PersonagensDto dto) {
-        PropertyMap<PersonagensDto, Personagens> personagemMap = new PropertyMap<PersonagensDto, Personagens>() {
+        final PropertyMap<PersonagensDto, Personagens> dtoToPersonagemMap = new PropertyMap<PersonagensDto, Personagens>() {
             protected void configure() {
-                map().setName(dto.getNome());
-                map().setSpecies(dto.getEspecie());
+                using(PersonagensConverter.integerToLong())
+                    .map(source.getCodigo(), destination.getId());
+                map().setName(source.getNome());
+                map().setStatus(source.getStatus());
+                map().setSpecies(source.getEspecie());
+                map().setType(source.getTipo());
+                map().setGender(source.getGenero());
+                using(PersonagensConverter.listToArrayList())
+                    .map(source.getEpisodios(), destination.getEpisode());
+                map().setUrl(source.getUrl());
             }
         };
-        modelMapper.addMappings(personagemMap);
 
-        return modelMapper.map(dto, Personagens.class);
+        modelMapper.addMappings(personagemToDtoMap);
+        modelMapper.addMappings(dtoToPersonagemMap);
+        return modelMapper;
     }
-    
+
 }

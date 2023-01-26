@@ -13,18 +13,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class PersonagensApiIntegrationTest {
-    private static final String PETS_PATH = "/personagens/";
+    private static final String PATH = "/personagens/";
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
     public void whenReadAll_thenStatusIsNotImplemented() throws Exception {
-        this.mockMvc.perform(get(PETS_PATH)).andExpect(status().isNotImplemented());
+        this.mockMvc.perform(get(PATH)).andExpect(status().isNotImplemented());
     }
 
     @Test
     public void whenReadOne_thenStatusIsNotImplemented() throws Exception {
-        this.mockMvc.perform(get(PETS_PATH + 1)).andExpect(status().isNotImplemented());
+        this.mockMvc.perform(get(PATH + 1)).andExpect(status().isNotImplemented());
     }
 }
