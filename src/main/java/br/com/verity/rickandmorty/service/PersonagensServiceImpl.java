@@ -1,6 +1,7 @@
 package br.com.verity.rickandmorty.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,11 @@ public class PersonagensServiceImpl implements PersonagensService {
 
     @Override
     public PersonagensDto buscarPersonagem(String personagensId) {
-        return personagensMapper.modelMapperPersonagens().map(
-            personagensRepository.findById(PersonagensConverter.stringToLong(personagensId)), PersonagensDto.class);
+        Personagens personagem = 
+            personagensRepository
+                .findById(PersonagensConverter.stringToLong(personagensId))
+                .orElse(new Personagens());
+        return personagensMapper.modelMapperPersonagens().map(personagem, PersonagensDto.class);
     }
 
     @Override

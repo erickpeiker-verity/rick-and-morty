@@ -1,2 +1,12 @@
 2023-01-30 14:11:51,173 DEBUG b.c.v.r.c.PersonagensApiController [http-nio-8080-exec-1] Listar personagens
 2023-01-30 14:13:25,721 DEBUG - Listar personagens
+2023-01-30 14:18:51,826 DEBUG - Buscar personagem de código 2
+2023-01-30 14:36:19,005 DEBUG - Buscar personagem de código 2
+2023-01-30 14:38:41,169 DEBUG - Buscar personagem de código 2
+2023-01-30 14:40:41,886 DEBUG - Buscar personagem de código 2
+2023-01-30 14:41:04,561 DEBUG - Buscar personagem de código 1
+2023-01-30 14:41:21,379 DEBUG - Buscar personagem de código 3
+2023-01-30 15:12:52,883 DEBUG - Atualizar personagem - 2
+2023-01-30 15:13:09,545 DEBUG - Listar personagens
+2023-01-30 15:13:39,088 DEBUG - Atualizar personagem - 3
+2023-01-30 15:13:44,443 DEBUG - Listar personagens
