@@ -29,10 +29,9 @@ public class PersonagensServiceImpl implements PersonagensService {
     }
 
     @Override
-    public PersonagensDto salvarPersonagem(PersonagensDto personagemDto) {
+    public void salvarPersonagem(PersonagensDto personagemDto) {
         Personagens personagem = personagensMapper.modelMapperPersonagens().map(personagemDto, Personagens.class);
-        Personagens personagemSaved = personagensRepository.save(personagem);
-        return personagensMapper.modelMapperPersonagens().map(personagemSaved, PersonagensDto.class);
+        personagensRepository.save(personagem);
     }
 
     @Override
