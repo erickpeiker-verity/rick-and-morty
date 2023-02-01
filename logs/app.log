@@ -1760,3 +1760,103 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2023-01-31 17:58:47,330 INFO  - No active profile set, falling back to 1 default profile: "default"
 2023-01-31 17:58:49,808 INFO  - Started PersonagensApiControllerTest in 3.298 seconds (process running for 5.551)
 2023-01-31 17:58:50,003 DEBUG - Listar personagens
+2023-02-01 08:59:03,579 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 20068 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 08:59:03,601 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 08:59:03,604 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 08:59:07,019 INFO  - Started PersonagensApiControllerTest in 4.171 seconds (process running for 5.891)
+2023-02-01 08:59:46,365 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 7740 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 08:59:46,380 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 08:59:46,381 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 08:59:48,610 INFO  - Started PersonagensApiControllerTest in 2.899 seconds (process running for 4.652)
+2023-02-01 09:00:47,829 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 13932 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:00:47,844 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:00:47,845 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:00:50,057 INFO  - Started PersonagensApiControllerTest in 2.905 seconds (process running for 4.686)
+2023-02-01 09:01:45,068 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 11200 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:01:45,082 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:01:45,083 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:01:47,441 INFO  - Started PersonagensApiControllerTest in 2.985 seconds (process running for 4.623)
+2023-02-01 09:02:41,348 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 14168 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:02:41,364 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:02:41,365 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:02:43,378 INFO  - Started PersonagensApiControllerTest in 2.654 seconds (process running for 4.502)
+2023-02-01 09:03:17,299 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 18084 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:03:17,316 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:03:17,318 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:03:19,608 INFO  - Started PersonagensApiControllerTest in 2.974 seconds (process running for 4.689)
+2023-02-01 09:04:03,323 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 11852 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:04:03,336 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:04:03,337 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:04:05,401 INFO  - Started PersonagensApiControllerTest in 2.686 seconds (process running for 4.458)
+2023-02-01 09:04:56,964 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 17400 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:04:56,981 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:04:56,982 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:04:59,235 INFO  - Started PersonagensApiControllerTest in 2.88 seconds (process running for 4.584)
+2023-02-01 09:05:44,700 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 13688 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:05:44,720 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:05:44,723 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:05:46,766 INFO  - Started PersonagensApiControllerTest in 2.653 seconds (process running for 4.294)
+2023-02-01 09:06:13,216 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 4328 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:06:13,241 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:06:13,242 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:06:16,413 INFO  - Started PersonagensApiControllerTest in 4.397 seconds (process running for 7.698)
+2023-02-01 09:06:56,901 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 8972 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:06:56,917 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:06:56,919 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:06:59,000 INFO  - Started PersonagensApiControllerTest in 2.698 seconds (process running for 4.337)
+2023-02-01 09:07:59,081 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 18732 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:07:59,097 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:07:59,099 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:08:01,279 INFO  - Started PersonagensApiControllerTest in 2.805 seconds (process running for 4.474)
+2023-02-01 09:08:55,827 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 9128 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:08:55,840 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:08:55,841 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:08:57,839 INFO  - Started PersonagensApiControllerTest in 2.614 seconds (process running for 4.422)
+2023-02-01 09:09:36,453 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 10988 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:09:36,467 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:09:36,468 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:09:38,498 INFO  - Started PersonagensApiControllerTest in 2.653 seconds (process running for 4.434)
+2023-02-01 09:10:07,548 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 2692 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:10:07,565 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:10:07,565 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:10:09,560 INFO  - Started PersonagensApiControllerTest in 2.616 seconds (process running for 4.241)
+2023-02-01 09:10:47,253 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 9800 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:10:47,269 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:10:47,270 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:10:49,276 INFO  - Started PersonagensApiControllerTest in 2.642 seconds (process running for 4.34)
+2023-02-01 09:18:07,351 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 19588 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:18:07,370 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:18:07,371 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:18:09,643 INFO  - Started PersonagensApiControllerTest in 2.969 seconds (process running for 4.736)
+2023-02-01 09:18:09,825 DEBUG - Listar personagens
+2023-02-01 09:18:09,929 DEBUG - Buscar personagem de código 1
+2023-02-01 09:18:10,062 DEBUG - Salvar personagem - class PersonagensDto {
+    status: null
+    url: null
+    codigo: null
+    genero: null
+    nome: null
+    especie: null
+    tipo: null
+    episodios: null
+}
+2023-02-01 09:18:10,103 DEBUG - Atualizar personagem - 1
+2023-02-01 09:18:10,150 DEBUG - Remover personagem - 1
+2023-02-01 09:21:52,396 INFO  - Starting PersonagensApiControllerTest using Java 17.0.5 with PID 14252 (started by Fábio Vaz in C:\Users\Fábio Vaz\eclipse-workspace\rick-and-morty)
+2023-02-01 09:21:52,414 DEBUG - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-01 09:21:52,416 INFO  - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 09:21:54,696 INFO  - Started PersonagensApiControllerTest in 2.974 seconds (process running for 4.803)
+2023-02-01 09:21:54,868 DEBUG - Listar personagens
+2023-02-01 09:21:55,006 DEBUG - Buscar personagem de código 1
+2023-02-01 09:21:55,155 DEBUG - Salvar personagem - class PersonagensDto {
+    status: null
+    url: null
+    codigo: null
+    genero: null
+    nome: null
+    especie: null
+    tipo: null
+    episodios: null
+}
+2023-02-01 09:21:55,198 DEBUG - Atualizar personagem - 1
+2023-02-01 09:21:55,240 DEBUG - Remover personagem - 1
