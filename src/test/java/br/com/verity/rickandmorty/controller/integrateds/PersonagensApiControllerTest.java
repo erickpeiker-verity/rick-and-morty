@@ -1,17 +1,12 @@
 package br.com.verity.rickandmorty.controller.integrateds;
 
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,50 +37,28 @@ public class PersonagensApiControllerTest {
 	@Autowired
 	private ObjectMapper objectMapper;
 	
-	PersonagensDto personagensDto;
-	List<PersonagensDto> listPersonagensDto;
-	List<String> episodios;
-
-	@BeforeEach
-	public void setUp() {
-		episodios = new ArrayList<>();
-		episodios.add("https://rickandmortyapi.com/api/episode/1");
-		episodios.add("https://rickandmortyapi.com/api/episode/2");
-		
-		personagensDto = new PersonagensDto();
-		personagensDto.setCodigo(2);
-		personagensDto.setNome("Morty Smith");
-		personagensDto.setStatus("Alive");
-		personagensDto.setEspecie("Human");
-		personagensDto.setTipo("");
-		personagensDto.setUrl("https://rickandmortyapi.com/api/character/2");
-		personagensDto.setGenero("Male");
-		personagensDto.setEpisodios(episodios);
-		
-		listPersonagensDto = new ArrayList<>();
-		listPersonagensDto.add(personagensDto);
-	}
-	
 	@Test
 	@DisplayName("Deve retornar personagens")
 	public void ct1() throws Exception {
-		when(personagensServiceImpl.listarPersonagens()).thenReturn(listPersonagensDto);
+		when(personagensServiceImpl.listarPersonagens()).thenReturn(Arrays.asList(new PersonagensDto()));
 		
 		mockMvc.perform(get("/v1/personagens"))
 		.andDo(print())
-        .andExpect(status().isOk());
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json"));
 	}
 
 	@Test
 	@DisplayName("Deve retornar personagem por id")
 	public void ct2() throws Exception {
-		when(personagensServiceImpl.buscarPersonagem("2")).thenReturn(personagensDto);
+		when(personagensServiceImpl.buscarPersonagem("0")).thenReturn(new PersonagensDto());
 		
 		mockMvc.perform(
 				get("/v1/personagens/2")
-				.content(objectMapper.writeValueAsString(personagensDto)))
+				.content(objectMapper.writeValueAsString(new PersonagensDto())))
 		.andDo(print())
-        .andExpect(status().isOk());
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json"));
 	}
 	
 	@Test
@@ -101,16 +74,17 @@ public class PersonagensApiControllerTest {
 	public void ct4() throws Exception {
 		mockMvc.perform(post("/v1/personagens")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content(objectMapper.writeValueAsString(personagensDto)))
+			.content(objectMapper.writeValueAsString(new PersonagensDto())))
 		.andDo(print())
-        .andExpect(status().isOk());
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json"));
 	}
 
 	@Test
 	@DisplayName("Nao deve criar personagem sem media type")
 	public void ct5() throws Exception {
 		mockMvc.perform(post("/v1/personagens")
-			.content(objectMapper.writeValueAsString(personagensDto)))
+			.content(objectMapper.writeValueAsString(new PersonagensDto())))
 		.andDo(print())
         .andExpect(status().isUnsupportedMediaType());
 	}
@@ -127,11 +101,12 @@ public class PersonagensApiControllerTest {
 	@Test
 	@DisplayName("Deve alterar personagem")
 	public void ct7() throws Exception {
-		mockMvc.perform(put("/v1/personagens/1")
+		mockMvc.perform(put("/v1/personagens/0")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content(objectMapper.writeValueAsString(personagensDto)))
+			.content(objectMapper.writeValueAsString(new PersonagensDto())))
 		.andDo(print())
-        .andExpect(status().isOk());
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json"));
 	}
 	
 	@Test
@@ -139,7 +114,7 @@ public class PersonagensApiControllerTest {
 	public void ct8() throws Exception {
 		mockMvc.perform(put("/v1/personagens/")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content(objectMapper.writeValueAsString(personagensDto)))
+			.content(objectMapper.writeValueAsString(new PersonagensDto())))
 		.andDo(print())
         .andExpect(status().isNotFound());
 	}
@@ -147,8 +122,8 @@ public class PersonagensApiControllerTest {
 	@Test
 	@DisplayName("Nao deve alterar personagem sem media type")
 	public void ct9() throws Exception {
-		mockMvc.perform(put("/v1/personagens/1")
-			.content(objectMapper.writeValueAsString(personagensDto)))
+		mockMvc.perform(put("/v1/personagens/0")
+			.content(objectMapper.writeValueAsString(new PersonagensDto())))
 		.andDo(print())
         .andExpect(status().isUnsupportedMediaType());
 	}
@@ -156,7 +131,7 @@ public class PersonagensApiControllerTest {
 	@Test
 	@DisplayName("Nao deve alterar personagem sem body")
 	public void ct10() throws Exception {
-		mockMvc.perform(put("/v1/personagens/1")
+		mockMvc.perform(put("/v1/personagens/0")
 			.contentType(MediaType.APPLICATION_JSON))
 		.andDo(print())
         .andExpect(status().isBadRequest());
@@ -165,9 +140,10 @@ public class PersonagensApiControllerTest {
 	@Test
 	@DisplayName("Deve deletar personagem")
 	public void ct11() throws Exception {
-		mockMvc.perform(delete("/v1/personagens/1"))
+		mockMvc.perform(delete("/v1/personagens/0"))
 		.andDo(print())
-        .andExpect(status().isOk());
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json"));
 	}
 	
 	@Test
