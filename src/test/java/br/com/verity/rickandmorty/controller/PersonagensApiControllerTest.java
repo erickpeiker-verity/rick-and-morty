@@ -1,5 +1,6 @@
 package br.com.verity.rickandmorty.controller;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -7,6 +8,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +31,7 @@ import br.com.verity.rickandmorty.service.PersonagensServiceImpl;
 @WebMvcTest(controllers = PersonagensApiController.class)
 @DisplayName("Personagens Api Controller")
 public class PersonagensApiControllerTest {
-	
+
 	@MockBean
 	PersonagensServiceImpl personagensServiceImpl;
 	
@@ -36,10 +41,36 @@ public class PersonagensApiControllerTest {
 	@Autowired
 	private ObjectMapper objectMapper;
 	
+	PersonagensDto personagensDto;
+	List<PersonagensDto> listPersonagensDto;
+	List<String> episodios;
+
+	@BeforeEach
+	public void setUp() {
+		episodios = new ArrayList<>();
+		episodios.add("https://rickandmortyapi.com/api/episode/1");
+		episodios.add("https://rickandmortyapi.com/api/episode/2");
+		
+		personagensDto = new PersonagensDto();
+		personagensDto.setCodigo(2);
+		personagensDto.setNome("Morty Smith");
+		personagensDto.setStatus("Alive");
+		personagensDto.setEspecie("Human");
+		personagensDto.setTipo("");
+		personagensDto.setUrl("https://rickandmortyapi.com/api/character/2");
+		personagensDto.setGenero("Male");
+		personagensDto.setEpisodios(episodios);
+		
+		listPersonagensDto = new ArrayList<>();
+		listPersonagensDto.add(personagensDto);
+	}
+	
 	@Test
-	@DisplayName("Deve retornar personagem")
+	@DisplayName("Deve retornar personagens")
 	public void ct1() throws Exception {
-		 mockMvc.perform(get("/v1/personagens"))
+		when(personagensServiceImpl.listarPersonagens()).thenReturn(listPersonagensDto);
+		
+		mockMvc.perform(get("/v1/personagens"))
 		.andDo(print())
         .andExpect(status().isOk());
 	}
@@ -47,7 +78,11 @@ public class PersonagensApiControllerTest {
 	@Test
 	@DisplayName("Deve retornar personagem por id")
 	public void ct2() throws Exception {
-		mockMvc.perform(get("/v1/personagens/1"))
+		when(personagensServiceImpl.buscarPersonagem("2")).thenReturn(personagensDto);
+		
+		mockMvc.perform(
+				get("/v1/personagens/2")
+				.content(objectMapper.writeValueAsString(personagensDto)))
 		.andDo(print())
         .andExpect(status().isOk());
 	}
@@ -65,15 +100,16 @@ public class PersonagensApiControllerTest {
 	public void ct4() throws Exception {
 		mockMvc.perform(post("/v1/personagens")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content(objectMapper.writeValueAsString(new PersonagensDto())))
+			.content(objectMapper.writeValueAsString(personagensDto)))
 		.andDo(print())
         .andExpect(status().isOk());
 	}
-	
+
 	@Test
 	@DisplayName("Nao deve criar personagem sem media type")
 	public void ct5() throws Exception {
-		mockMvc.perform(post("/v1/personagens"))
+		mockMvc.perform(post("/v1/personagens")
+			.content(objectMapper.writeValueAsString(personagensDto)))
 		.andDo(print())
         .andExpect(status().isUnsupportedMediaType());
 	}
@@ -92,7 +128,7 @@ public class PersonagensApiControllerTest {
 	public void ct7() throws Exception {
 		mockMvc.perform(put("/v1/personagens/1")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content(objectMapper.writeValueAsString(new PersonagensDto())))
+			.content(objectMapper.writeValueAsString(personagensDto)))
 		.andDo(print())
         .andExpect(status().isOk());
 	}
@@ -100,17 +136,18 @@ public class PersonagensApiControllerTest {
 	@Test
 	@DisplayName("Nao deve alterar personagem sem id")
 	public void ct8() throws Exception {
-		mockMvc.perform(put("/v1/personagens")
+		mockMvc.perform(put("/v1/personagens/")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content(objectMapper.writeValueAsString(new PersonagensDto())))
+			.content(objectMapper.writeValueAsString(personagensDto)))
 		.andDo(print())
-        .andExpect(status().isMethodNotAllowed());
+        .andExpect(status().isNotFound());
 	}
 	
 	@Test
 	@DisplayName("Nao deve alterar personagem sem media type")
 	public void ct9() throws Exception {
-		mockMvc.perform(put("/v1/personagens/1"))
+		mockMvc.perform(put("/v1/personagens/1")
+			.content(objectMapper.writeValueAsString(personagensDto)))
 		.andDo(print())
         .andExpect(status().isUnsupportedMediaType());
 	}
@@ -135,6 +172,14 @@ public class PersonagensApiControllerTest {
 	@Test
 	@DisplayName("Nao deve deletar personagem sem id")
 	public void ct12() throws Exception {
+		mockMvc.perform(delete("/v1/personagens/"))
+		.andDo(print())
+        .andExpect(status().isNotFound());
+	}
+	
+	@Test
+	@DisplayName("Nao deve encontrar endpoint de personagens com path errado")
+	public void ct13() throws Exception {
 		mockMvc.perform(delete("/v1/personagens"))
 		.andDo(print())
         .andExpect(status().isMethodNotAllowed());
