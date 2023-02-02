@@ -1,4 +1,4 @@
-package br.com.verity.rickandmorty.controller;
+package br.com.verity.rickandmorty.controller.integrateds;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -24,11 +24,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.verity.rickandmorty.controller.PersonagensApiController;
 import br.com.verity.rickandmorty.dto.PersonagensDto;
 import br.com.verity.rickandmorty.service.PersonagensServiceImpl;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = PersonagensApiController.class)
+@WebMvcTest(PersonagensApiController.class)
 @DisplayName("Personagens Api Controller")
 public class PersonagensApiControllerTest {
 
