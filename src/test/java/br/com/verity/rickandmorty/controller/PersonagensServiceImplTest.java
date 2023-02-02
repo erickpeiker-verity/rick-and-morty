@@ -1,5 +1,6 @@
 package br.com.verity.rickandmorty.controller;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
@@ -9,13 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -38,83 +37,80 @@ public class PersonagensServiceImplTest {
 	@InjectMocks
 	PersonagensServiceImpl personagensServiceImpl;
 	
-	@BeforeEach
-	public void setUp() {
-		MockitoAnnotations.openMocks(this);
-	}
-	
 	@Test
 	@DisplayName("Deve listar personagens")
 	public void ct1() {
-		// cenario
+		// CENARIO
 		List<Personagens> personagens = new ArrayList<>();
 		personagens.add(new Personagens());
 
 		when(personagensRepository.findAll()).thenReturn(personagens);
 		
-		// acao
-		personagensServiceImpl.listarPersonagens();
+		// ACAO
+		List<PersonagensDto> response = personagensServiceImpl.listarPersonagens();
 
-		// verificacao
+		// VERIFICACAO
 		verify(personagensRepository).findAll();
+		assertTrue(response.get(0) instanceof PersonagensDto);
 	}
 	
 	@Test
 	@DisplayName("Deve salvar personagem")
 	public void ct2() {
-		// cenario
+		// CENARIO
 		Personagens personagem = new Personagens();
 		PersonagensDto personagensDto = new PersonagensDto();
 
 		when(personagensRepository.save(any(Personagens.class))).thenReturn(personagem);
 
-		// acao
+		// ACAO
 		personagensServiceImpl.salvarPersonagem(personagensDto);
 		
-		// verificacao
+		// VERIFICACAO
 		verify(personagensRepository).save(any(Personagens.class));
 	}
 	
 	@Test
 	@DisplayName("Deve buscar personagem")
 	public void ct3() {
-		// cenario
+		// CENARIO
 		Optional<Personagens> personagem = Optional.empty();
 
 		when(personagensRepository.findById(1L)).thenReturn(personagem);
 		
-		// acao
-		personagensServiceImpl.buscarPersonagem("1");
+		// ACAO
+		PersonagensDto response = personagensServiceImpl.buscarPersonagem("1");
 
-		// verificacao
+		// VERIFICACAO
 		verify(personagensRepository).findById(1L);
+		assertTrue(response instanceof PersonagensDto);
 	}
 	
 	@Test
 	@DisplayName("Deve remover personagem")
 	public void ct4() {
-		// cenario
+		// CENARIO
 		doNothing().when(personagensRepository).deleteById(1L);
 		
-		// acao
+		// ACAO
 		personagensServiceImpl.removerPersonagem("1");
 		
-		// verificacao
+		// VERIFICACAO
 		verify(personagensRepository).deleteById(1L);
 	}
 	
 	@Test
 	@DisplayName("Deve alterar personagem")
 	public void ct5() {
-		// cenario
+		// CENARIO
 		Personagens personagem = new Personagens();
 		
 		when(personagensRepository.save(any(Personagens.class))).thenReturn(personagem);
 
-		// acao
+		// ACAO
 		personagensServiceImpl.alterarPersonagem("1", new PersonagensDto());
 		
-		// verificacao
+		// VERIFICACAO
 		verify(personagensRepository).save(any(Personagens.class));
 	}
 	
