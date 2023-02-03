@@ -46,6 +46,7 @@ public class PersonagensApiController implements PersonagensApi {
         if(logger.isDebugEnabled()) {
             logger.debug("Salvar personagem - {}", body);
         }
+        personagensServiceImpl.salvarPersonagem(body);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
