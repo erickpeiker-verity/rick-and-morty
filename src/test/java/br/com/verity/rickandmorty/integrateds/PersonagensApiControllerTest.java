@@ -1,4 +1,4 @@
-package br.com.verity.rickandmorty.controller.integrateds;
+package br.com.verity.rickandmorty.integrateds;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

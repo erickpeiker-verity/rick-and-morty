@@ -1,4 +1,5 @@
-package br.com.verity.rickandmorty.controller.units;
+package br.com.verity.rickandmorty.units;
+
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
