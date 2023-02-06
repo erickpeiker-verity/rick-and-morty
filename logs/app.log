@@ -6650,3 +6650,90 @@ insert into PERSONAGENS (CREATED, EPISODE, GENDER, IMAGE, NAME, SPECIES, STATUS,
     episodios: [https:episodio]
 }
 2023-02-06 10:32:47,195 DEBUG - Atualizar personagem - 1
+2023-02-06 13:11:09,961 DEBUG - Salvar personagem - class PersonagensDto {
+    status: <STATUS>
+    url: <URL>
+    codigo: null
+    genero: <GENERO>
+    nome: <NOME>
+    especie: <ESPECIE>
+    tipo: <TIPO>
+    episodios: [<EPISODIO>]
+}
+2023-02-06 13:11:10,246 DEBUG - Buscar personagem de código 1
+2023-02-06 13:21:17,768 DEBUG - Salvar personagem - class PersonagensDto {
+    status: Alive
+    url: https:url
+    codigo: null
+    genero: Male
+    nome: Morty Smith
+    especie: Human
+    tipo: null
+    episodios: [https:episodio]
+}
+2023-02-06 13:21:18,104 DEBUG - Buscar personagem de código 1
+2023-02-06 13:23:48,858 DEBUG - Salvar personagem - class PersonagensDto {
+    status: Alive
+    url: https:url
+    codigo: null
+    genero: Male
+    nome: Morty Smith
+    especie: Human
+    tipo: null
+    episodios: [https:episodio]
+}
+2023-02-06 13:23:49,171 DEBUG - Listar personagens
+2023-02-06 13:23:49,429 DEBUG - Salvar personagem - class PersonagensDto {
+    status: Alive
+    url: https:url
+    codigo: null
+    genero: Male
+    nome: Morty Smith
+    especie: Human
+    tipo: null
+    episodios: [https:episodio]
+}
+2023-02-06 13:23:49,464 DEBUG - Buscar personagem de código 1
+2023-02-06 13:23:49,511 DEBUG - Salvar personagem - class PersonagensDto {
+    status: Alive
+    url: https:url
+    codigo: null
+    genero: Male
+    nome: Morty Smith
+    especie: Human
+    tipo: null
+    episodios: [https:episodio]
+}
+2023-02-06 13:23:49,539 DEBUG - Salvar personagem - class PersonagensDto {
+    status: Alive
+    url: https:url
+    codigo: null
+    genero: Male
+    nome: Morty Smith
+    especie: Human
+    tipo: null
+    episodios: [https:episodio]
+}
+2023-02-06 13:23:49,560 DEBUG - Buscar personagem de código 2
+2023-02-06 13:23:49,599 DEBUG - Salvar personagem - class PersonagensDto {
+    status: Alive
+    url: https:url
+    codigo: null
+    genero: Male
+    nome: Morty Smith
+    especie: Human
+    tipo: null
+    episodios: [https:episodio]
+}
+2023-02-06 13:23:49,626 DEBUG - Atualizar personagem - 1
+2023-02-06 13:23:49,664 DEBUG - Salvar personagem - class PersonagensDto {
+    status: Alive
+    url: https:url
+    codigo: null
+    genero: Male
+    nome: Morty Smith
+    especie: Human
+    tipo: null
+    episodios: [https:episodio]
+}
+2023-02-06 13:23:49,686 DEBUG - Remover personagem - 1

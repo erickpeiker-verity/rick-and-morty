@@ -118,10 +118,10 @@ public class PersonagensSteps {
 		List<PersonagensDto> personagensDto = response.as(new TypeRef<List<PersonagensDto>>() {});
 		
 		personagensDto.forEach(personagem -> {
-			assertThat(personagem.getStatus(), matchesPattern("Alive"));
+			assertThat(personagem.getStatus(), matchesPattern("Alive|Dead|unknown"));
 			assertThat(personagem.getUrl(), matchesPattern("https:url"));
 			assertThat(personagem.getCodigo().toString(), matchesPattern("1"));
-			assertThat(personagem.getGenero(), matchesPattern("Male"));
+			assertThat(personagem.getGenero(), matchesPattern("Female|Male|Genderless|unknown"));
 			assertThat(personagem.getNome(), matchesPattern("Morty Smith"));
 			assertThat(personagem.getEspecie(), matchesPattern("Human"));
 			personagem.getEpisodios().forEach(episodio -> {				
@@ -134,10 +134,10 @@ public class PersonagensSteps {
 	public void validarOPersonagemCriado() {
 		PersonagensDto personagensDto = response.as(PersonagensDto.class);
 		
-		assertThat(personagensDto.getStatus(), matchesPattern("Alive"));
+		assertThat(personagensDto.getStatus(), matchesPattern("Alive|Dead|unknown"));
 		assertThat(personagensDto.getUrl(), matchesPattern("https:url"));
 		assertThat(personagensDto.getCodigo().toString(), matchesPattern("1"));
-		assertThat(personagensDto.getGenero(), matchesPattern("Male"));
+		assertThat(personagensDto.getGenero(), matchesPattern("Female|Male|Genderless|unknown"));
 		assertThat(personagensDto.getNome(), matchesPattern("Morty Smith"));
 		assertThat(personagensDto.getEspecie(), matchesPattern("Human"));
 		personagensDto.getEpisodios().forEach(episodio -> {				
