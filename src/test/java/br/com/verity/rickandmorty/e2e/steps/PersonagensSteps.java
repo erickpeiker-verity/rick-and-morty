@@ -1,5 +1,8 @@
 package br.com.verity.rickandmorty.e2e.steps;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.matchesPattern;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +14,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.restassured.RestAssured;
+import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -109,4 +113,35 @@ public class PersonagensSteps {
 			.statusCode(statusCode);
 	}
 	
+	@Entao("validar todos personagens criados")
+	public void validarTodosPersonagensCriados() {
+		List<PersonagensDto> personagensDto = response.as(new TypeRef<List<PersonagensDto>>() {});
+		
+		personagensDto.forEach(personagem -> {
+			assertThat(personagem.getStatus(), matchesPattern("Alive"));
+			assertThat(personagem.getUrl(), matchesPattern("https:url"));
+			assertThat(personagem.getCodigo().toString(), matchesPattern("1"));
+			assertThat(personagem.getGenero(), matchesPattern("Male"));
+			assertThat(personagem.getNome(), matchesPattern("Morty Smith"));
+			assertThat(personagem.getEspecie(), matchesPattern("Human"));
+			personagem.getEpisodios().forEach(episodio -> {				
+				assertThat(episodio, matchesPattern("https:episodio"));
+			});
+		});	
+	}
+	
+	@Entao("validar o personagem criado")
+	public void validarOPersonagemCriado() {
+		PersonagensDto personagensDto = response.as(PersonagensDto.class);
+		
+		assertThat(personagensDto.getStatus(), matchesPattern("Alive"));
+		assertThat(personagensDto.getUrl(), matchesPattern("https:url"));
+		assertThat(personagensDto.getCodigo().toString(), matchesPattern("1"));
+		assertThat(personagensDto.getGenero(), matchesPattern("Male"));
+		assertThat(personagensDto.getNome(), matchesPattern("Morty Smith"));
+		assertThat(personagensDto.getEspecie(), matchesPattern("Human"));
+		personagensDto.getEpisodios().forEach(episodio -> {				
+			assertThat(episodio, matchesPattern("https:episodio"));
+		});
+	}
 }

@@ -13,11 +13,13 @@ Funcionalidade: Verificar as funcionalidades de personagens
   Cenario: Deve retornar todos personagens
     Dado retornar todos personagens
     Entao validar o status code 200
+    E validar todos personagens criados
 
   @RETORNAR_PERSONAGEM
   Cenario: Deve retornar um personagem
     Dado retornar um personagem "1"
     Entao validar o status code 200
+    E validar o personagem criado
 
   @CRIAR_PERSONAGEM
   Cenario: Deve criar um personagem

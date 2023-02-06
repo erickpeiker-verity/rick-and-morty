@@ -8,13 +8,13 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		plugin = {"pretty"},
-		monochrome = true,
-		features = "classpath:features", 
-		extraGlue = "classpath:steps",
-		snippets = SnippetType.CAMELCASE,
-		tags = "@PERSONAGENS"
-	)
+	plugin = {"pretty"},
+	monochrome = true,
+	features = "classpath:features", 
+	extraGlue = "classpath:steps",
+	snippets = SnippetType.CAMELCASE,
+	tags = ""
+)
 public class CucumberIntegrationTest {
 
 }
